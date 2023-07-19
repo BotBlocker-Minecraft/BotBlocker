@@ -72,7 +72,7 @@ BotBlocker is a plugin for Bukkit/Spigot Minecraft servers designed to limit bot
 
 ### Built With
 
-* [Java](https://java.com)
+* ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)
 * [Bukkit/Spigot](https://www.spigotmc.org)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
