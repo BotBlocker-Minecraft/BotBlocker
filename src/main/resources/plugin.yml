@@ -1,0 +1,11 @@
+name: BotBlocker
+main: eus.aichan.BotBlocker
+version: 1.0
+description: A plugin to ban users who connect for the first time and disconnect within a certain time limit.
+commands:
+  botblocker:
+    description: Manages the BotBlocker plugin
+    usage: |
+      /<command> enable - Enables the BotBlocker plugin
+      /<command> disable - Disables the BotBlocker plugin
+      /<command> setTimeLimit [seconds] - Sets the time limit
