@@ -13,6 +13,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -22,6 +23,7 @@ public class BotBlocker extends JavaPlugin implements Listener {
     private int timeLimit;  // In seconds
     private HashMap<UUID, Long> joinTimes = new HashMap<>();
     private FileConfiguration playersCfg;
+    private File playersFile;
 
     @Override
     public void onEnable() {
@@ -29,7 +31,7 @@ public class BotBlocker extends JavaPlugin implements Listener {
         timeLimit = getConfig().getInt("time-limit", 60);  // Default to 60 seconds
         Bukkit.getPluginManager().registerEvents(this, this);
 
-        File playersFile = new File(getDataFolder(), "players.yml");
+        playersFile = new File(getDataFolder(), "players.yml");
         if (!playersFile.exists()) {
             saveResource("players.yml", false);
         }
@@ -93,8 +95,21 @@ public class BotBlocker extends JavaPlugin implements Listener {
                 String playerName = event.getPlayer().getName();
                 Bukkit.getBanList(Type.NAME).addBan(playerName, "Bot detected. If you are a legitimate user, please contact the admin.", null, "Sistema anti-bot");
                 getLogger().info("Player '" + playerName + "' was banned for disconnecting within " + timeLimit + " seconds of joining for the first time - suspected bot.");
+            } else {
+                // Add the player to players.yml if it is not banned
+                playersCfg.set(playerId.toString(), true);
+                savePlayers();
             }
             joinTimes.remove(playerId);
         }
     }
+
+    private void savePlayers() {
+        try {
+            playersCfg.save(playersFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
 }
