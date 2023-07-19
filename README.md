@@ -64,7 +64,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-BotBlocker is a plugin for Bukkit/Spigot Minecraft servers designed to limit bot intrusion. This plugin works by limiting the maximum amount of login attempts per minute from each IP address, effectively reducing the impact of a bot attack.
+BotBlocker is a plugin for Bukkit/Spigot Minecraft servers designed to limit bot intrusion. It operates by registering the joining and leaving timestamps of players, and if the time difference is less than a minute (by default), access is prohibited. This approach limits the number of login attempts per minute from each UUID, effectively mitigating the consequences of a bot attack.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
