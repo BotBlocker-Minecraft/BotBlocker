@@ -105,9 +105,9 @@ To get this plugin up and running on your server, follow these steps:
 Once installed and enabled, BotBlocker works in the background without any intervention. If needed, you can adjust the bot protection parameters in the generated `config.yml` file.
 
 ### Commands
-  /BotBlocker enable - Enables the BotBlocker plugin
-  /BotBlocker disable - Disables the BotBlocker plugin
-  /BotBlocker setTimeLimit [seconds] - Sets the time limit
+* /BotBlocker enable - Enables the BotBlocker plugin
+* /BotBlocker disable - Disables the BotBlocker plugin
+* /BotBlocker setTimeLimit [seconds] - Sets the time limit
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
